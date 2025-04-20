@@ -59,7 +59,7 @@ export default function FeaturesClient() {
       variants={staggerContainer}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="py-12 sm:py-24"
+      className="w-full min-h-screen py-12 sm:py-24 overflow-x-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-16">
@@ -85,26 +85,26 @@ export default function FeaturesClient() {
           </motion.p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 w-full">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
               variants={feature.animate(index + 1)}
-              className={`relative overflow-hidden rounded-3xl p-6 sm:p-8 flex flex-col min-h-[280px] ${
+              className={`relative overflow-hidden rounded-3xl p-6 sm:p-8 flex flex-col ${
                 feature.position === 'wide-left' ? 'sm:col-span-2 lg:col-span-8' :
                 feature.position === 'narrow-right' ? 'lg:col-span-4' :
                 feature.position === 'narrow-left' ? 'lg:col-span-4' :
                 'sm:col-span-2 lg:col-span-8'
-              } bg-gradient-to-br from-sage/20 to-sage/10 hover:from-sage/30 hover:to-sage/20 backdrop-blur-xl border border-sage/30 shadow-[0_8px_30px_rgba(102,137,102,0.2)] hover:shadow-[0_8px_40px_rgba(102,137,102,0.3)] transition-all duration-500`}
+              } min-h-[250px] bg-gradient-to-br from-sage/20 to-sage/10 hover:from-sage/30 hover:to-sage/20 backdrop-blur-xl border border-sage/30 shadow-[0_8px_30px_rgba(102,137,102,0.2)] hover:shadow-[0_8px_40px_rgba(102,137,102,0.3)] transition-all duration-500`}
             >
               <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(102,137,102,0.1)_0%,transparent_60%)]" />
-              <dt className="relative flex items-center gap-x-3 text-lg font-semibold leading-7 text-sage">
-                <div className={`rounded-xl p-3 ${feature.className} shadow-[0_4px_20px_rgba(102,137,102,0.3)] backdrop-blur-xl border border-sage/30`}>
-                  <feature.icon className="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" />
+              <dt className="relative flex items-center gap-x-3 text-base sm:text-lg font-semibold leading-7 text-sage">
+                <div className={`rounded-xl p-2.5 sm:p-3 ${feature.className} shadow-[0_4px_20px_rgba(102,137,102,0.3)] backdrop-blur-xl border border-sage/30`}>
+                  <feature.icon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                 </div>
                 {feature.title}
               </dt>
-              <dd className="relative mt-4 sm:mt-6 flex flex-auto flex-col text-base leading-7 text-sage">
+              <dd className="relative mt-3 sm:mt-4 flex flex-auto flex-col text-sm sm:text-base leading-6 sm:leading-7 text-sage/90">
                 <p className="flex-auto">{feature.description}</p>
               </dd>
             </motion.div>
