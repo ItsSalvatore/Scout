@@ -1,10 +1,19 @@
 import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
 
+// Check for required environment variables
+if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+  throw new Error('NEXT_PUBLIC_SUPABASE_URL is not set');
+}
+
+if (!process.env.SUPABASE_SERVICE_KEY) {
+  throw new Error('SUPABASE_SERVICE_KEY is not set');
+}
+
 // Initialize Supabase client
 const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_KEY!
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_KEY
 );
 
 // Simple in-memory rate limiting
