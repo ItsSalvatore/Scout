@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/providers/theme-provider";
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
-  title: "Scout - Discover Your Next Favorite Spot",
-  description: "Join the community where friends share their favorite places. Find the perfect venue for any occasion.",
+  title: "Scout - Find Your Perfect Social Venue",
+  description: "Discover and book the best venues for your events and social gatherings.",
 };
 
 export default function RootLayout({
@@ -13,14 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
+    <html lang="en">
+      <body className={inter.className}>
+        <ThemeProvider>
           {children}
         </ThemeProvider>
       </body>

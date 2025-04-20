@@ -1,6 +1,5 @@
 'use client';
 
-import Image from "next/image";
 import FeaturesClient from "../components/sections/FeaturesClient";
 import Navbar from "../components/layout/Navbar";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -148,7 +147,7 @@ export default function Home() {
                     } else {
                       alert(data.error || 'Failed to join waitlist');
                     }
-                  } catch (error) {
+                  } catch {
                     alert('Failed to join waitlist');
                   }
                 }}
